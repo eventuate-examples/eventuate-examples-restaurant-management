@@ -1,0 +1,17 @@
+
+dependencies {
+    compile project(":common-web")
+    compile project(":restaurants-query-side-backend")
+
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-redis:$springBootVersion"
+
+    compile "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
+
+    testCompile project(":testutil")
+    testCompile project(":restaurants-command-side-backend")
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+    testCompile "net.chrisrichardson.eventstore.client:eventstore-jdbc_2.10:$eventStoreClientVersion"
+    testCompile "net.chrisrichardson.eventstore.client:eventstore-http-stomp-client_2.10:$eventStoreClientVersion"
+
+}

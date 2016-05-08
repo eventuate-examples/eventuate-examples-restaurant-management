@@ -1,0 +1,10 @@
+dependencies {
+    testCompile project(":restaurants-command-side-web")
+    testCompile project(":common-tests")
+    testCompile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+}
+
+test {
+    ignoreFailures (!project.hasProperty("ignoreE2EFailures") || ignoreE2EFailures.toBoolean())
+}

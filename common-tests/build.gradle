@@ -1,0 +1,11 @@
+dependencies {
+    compile project(":testutil")
+    compile project(":common-restaurants")
+    compile project(":restaurants-command-side-web")
+    compile project(":restaurants-query-side-web")
+
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+
+    compile "net.chrisrichardson.eventstore.client:eventstore-java-client_2.10:$eventStoreClientVersion"
+    compile "junit:junit:4.11"
+}

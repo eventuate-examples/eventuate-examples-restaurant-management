@@ -1,0 +1,13 @@
+include 'restaurants-command-side-backend'
+include 'restaurants-command-side-web'
+include 'restaurants-command-side-service'
+include 'common-restaurants'
+include 'common-web'
+include 'testutil'
+include 'restaurants-query-side-backend'
+include 'restaurants-query-side-web'
+include 'restaurants-query-side-service'
+include 'monolithic-service'
+include 'e2e-test'
+include 'common-tests'
+
