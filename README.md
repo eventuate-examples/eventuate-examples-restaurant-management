@@ -3,7 +3,8 @@
 
 Food to Go is a fictitious, on-demand logistics company that delivers takeout orders from restaurants to customers.
 A key part of the application is the restaurant management service, which maintains a database of restaurants that can be queried for availability to deliver an order to a customer at a particular time.
-This version of the restaurant management service is written in Java and uses event sourcing and Command Query Responsibility Segregation (CQRS), the Eventuate Platform, Spring Boot, and Redis.
+This version of the restaurant management service has an architecture based on microservices, event sourcing and Command Query Responsibility Segregation (CQRS).
+It is written in Java and uses the Eventuate Platform, Spring Boot, and Redis.
 
 Don't forget to take a look at the other [Eventuate example applications](http://eventuate.io/exampleapps.html).
 
@@ -17,9 +18,9 @@ The application is built using CQRS.
 The command side service handles creates, updates and deletes.
 It defines the following REST endpoints:
 
-* POST /restaurant - create a
-* PUT /restaurant/<id> - update a restaurant
-* DELETE /restaurant/<id> - delete a restaurant
+* POST /restaurant - create a restaurant
+* PUT /restaurant/*id* - update a restaurant
+* DELETE /restaurant/*id* - delete a restaurant
 
 The command side service stores restaurants in the Eventuate eventstore.
 
@@ -27,7 +28,7 @@ The query side service handles GET requests.
 It subscribes to Restaurant events and maintains a denormalized representation of the restaurants using Redis for fast querying.
 The query side service defines the following REST endpoints:
 
-* GET /restaurant/<id> - finds a restaurant
+* GET /restaurant/*id* - finds a restaurant
 * GET /availablerestaurants?zipcode=xx&dayOfWeek=xx&hour=xx&minute=xx - finds restaurants that are available to deliver to the specified zip code at the specified time
 
 # Signing up for Eventuate
