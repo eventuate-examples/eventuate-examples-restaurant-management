@@ -11,4 +11,5 @@ dependencies {
 
     testCompile project(":common-tests")
     testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "io.eventuate.client.java:eventuate-client-java-jdbc:$eventuateClientVersion"
 }
