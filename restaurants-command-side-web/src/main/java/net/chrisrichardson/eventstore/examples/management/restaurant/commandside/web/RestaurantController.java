@@ -4,9 +4,9 @@ import net.chrisrichardson.eventstore.examples.management.restaurant.commandside
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.RestaurantInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import rx.Observable;
 
 import javax.validation.Valid;
+import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/restaurants")
@@ -20,20 +20,20 @@ public class RestaurantController {
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public Observable<CreateRestaurantResponse> createRestaurant(@RequestBody @Valid RestaurantInfo request) {
+  public CompletableFuture<CreateRestaurantResponse> createRestaurant(@RequestBody @Valid RestaurantInfo request) {
     return restaurantService.createRestaurant(request)
-            .map(entityAndEventInfo -> new CreateRestaurantResponse(entityAndEventInfo.getEntityIdentifier().getId()));
+            .thenApply(entityAndEventInfo -> new CreateRestaurantResponse(entityAndEventInfo.getEntityId()));
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public Observable<UpdateRestaurantResponse> updateRestaurant(@PathVariable("id") String restaurantId,
+  public CompletableFuture<UpdateRestaurantResponse> updateRestaurant(@PathVariable("id") String restaurantId,
                                                                @RequestBody  @Valid RestaurantInfo request) {
     return restaurantService.updateRestaurant(restaurantId, request)
-            .map(entityAndEventInfo -> new UpdateRestaurantResponse(entityAndEventInfo.entityVersion().asString()));
+            .thenApply(entityAndEventInfo -> new UpdateRestaurantResponse(entityAndEventInfo.getEntityVersion().asString()));
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-  public Observable<DeleteRestaurantResponse> deleteRestaurant(@PathVariable("id") String restaurantId) {
-    return restaurantService.deleteRestaurant(restaurantId).map(entityAndEventInfo -> new DeleteRestaurantResponse(entityAndEventInfo.entityVersion().asString()));
+  public CompletableFuture<DeleteRestaurantResponse> deleteRestaurant(@PathVariable("id") String restaurantId) {
+    return restaurantService.deleteRestaurant(restaurantId).thenApply(entityAndEventInfo -> new DeleteRestaurantResponse(entityAndEventInfo.getEntityVersion().asString()));
   }
 }

@@ -52,6 +52,9 @@ public class RestaurantQuerySideRedisService implements RestaurantQuerySideServi
     }
 
     private Stream<ZSetEntry> getEntries(String id, RestaurantInfo restaurant) {
+        if(restaurant==null || restaurant.getOpeningHours()==null) {
+            return Stream.empty();
+        }
         return restaurant.getOpeningHours().stream().flatMap ( tr -> {
             String indexValue = formatTrId(id, tr);
             int dayOfWeek = tr.getDayOfWeek();
