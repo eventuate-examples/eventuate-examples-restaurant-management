@@ -1,7 +1,8 @@
 package net.chrisrichardson.eventstore.examples.management.restaurant.common.event;
 
-import net.chrisrichardson.eventstore.Event;
-import net.chrisrichardson.eventstore.EventEntity;
+
+import io.eventuate.Event;
+import io.eventuate.EventEntity;
 
 @EventEntity(entity="net.chrisrichardson.eventstore.examples.management.restaurant.commandside.RestaurantAggregate")
 public abstract  class RestaurantEvent implements Event {

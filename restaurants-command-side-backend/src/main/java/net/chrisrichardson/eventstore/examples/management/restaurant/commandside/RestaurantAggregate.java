@@ -1,8 +1,8 @@
 package net.chrisrichardson.eventstore.examples.management.restaurant.commandside;
 
-import net.chrisrichardson.eventstore.Event;
-import net.chrisrichardson.eventstore.EventUtil;
-import net.chrisrichardson.eventstore.ReflectiveMutableCommandProcessingAggregate;
+import io.eventuate.Event;
+import io.eventuate.EventUtil;
+import io.eventuate.ReflectiveMutableCommandProcessingAggregate;
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.RestaurantInfo;
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.event.RestaurantCreatedEvent;
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.event.RestaurantDeletedEvent;

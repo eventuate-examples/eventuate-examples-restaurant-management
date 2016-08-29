@@ -2,7 +2,7 @@
 dependencies {
     compile project(":common-restaurants")
 
-    compile "net.chrisrichardson.eventstore.client:eventstore-java-client_2.10:$eventStoreClientVersion"
+    compile "io.eventuate.client.java:eventuate-client-java-spring:$eventuateClientVersion"
     compile "org.springframework.boot:spring-boot-starter-redis:$springBootVersion"
 
     compile 'com.fasterxml.jackson.core:jackson-core:2.4.3'
@@ -11,5 +11,5 @@ dependencies {
     testCompile "junit:junit:4.11"
     testCompile project(":testutil")
     testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
-
+    testCompile "io.eventuate.client.java:eventuate-client-java-jdbc:$eventuateClientVersion"
 }

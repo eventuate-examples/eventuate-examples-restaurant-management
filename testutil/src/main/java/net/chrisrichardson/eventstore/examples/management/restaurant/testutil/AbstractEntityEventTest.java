@@ -1,8 +1,8 @@
 package net.chrisrichardson.eventstore.examples.management.restaurant.testutil;
 
-import net.chrisrichardson.eventstore.Aggregate;
-import net.chrisrichardson.eventstore.ReflectiveMutableCommandProcessingAggregate;
-import net.chrisrichardson.eventstore.subscriptions.EventEntityUtil;
+import io.eventuate.Aggregate;
+import io.eventuate.ReflectiveMutableCommandProcessingAggregate;
+import io.eventuate.javaclient.spring.EventEntityUtil;
 import org.junit.Test;
 import org.springframework.util.ReflectionUtils;
 
@@ -17,7 +17,7 @@ public abstract class AbstractEntityEventTest {
               @Override
               public void doWith(Method method) throws IllegalArgumentException, IllegalAccessException {
                 Class eventClass = method.getParameterTypes()[0];
-                String entityClassName = EventEntityUtil.entityClassFor(eventClass);
+                String entityClassName = EventEntityUtil.toEntityTypeName(eventClass);
                 try {
                   Class.forName(entityClassName);
                 } catch (ClassNotFoundException e) {
