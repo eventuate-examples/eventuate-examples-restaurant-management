@@ -36,33 +36,15 @@ The query side service defines the following REST endpoints:
 To run the application you need credentials for the Eventuate platform.
 You can get them by [signing up here](https://signup.eventuate.io/).
 
-# Running Redis
-
-In order to run the tests and to run the application you need Redis.
-The easiest way to run Redis is with docker-compose:
-
-```
-docker-compose up -d redis
-```
-
 # Building the application
-
-Before building and/or running application, you must set an environment variable that tells the application how to connect to Redis:
-
-```
-export SPRING_REDIS_HOST=<DOCKER_IP_ADDRESS>
-```
 
 You can then build the application using this Gradle command:
 
 ```
-./gradlew clean build
+./gradlew assemble
 ```
 
 Note: to use Gradle you just need to have the JDK in your path. You do not need to install it.
-
-Note: that the the end-to-end tests in the `e2e-test` module will fail because the service is not running.
-Don't worry, the test failures are ignored.
 
 # Running the service
 
@@ -72,21 +54,9 @@ Now that you built the application you can run the application using these comma
 docker-compose up -d
 ```
 
-# Running the end to end tests
+# Using the application
 
-Now that the service is running you can run the end-to-end tests:
-
-```
-./gradlew :e2e-test:cleanTest :e2e-test:test
-```
-
-Note: the environment variable `DOCKER_HOST_IP` must be set to the hostname/IP address of where the service is running, e.g:
-
-```
-export DOCKER_HOST_IP=$(docker-machine ip default)
-```
-
-See the shell script `build-and-test-all.sh` for more details.
+Now that the application is running you can use `curl` or some other tool to invoke the REST endpoints.
 
 # Got questions?
 
