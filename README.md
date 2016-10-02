@@ -22,41 +22,82 @@ It defines the following REST endpoints:
 * PUT /restaurant/*id* - update a restaurant
 * DELETE /restaurant/*id* - delete a restaurant
 
-The command side service stores restaurants in the Eventuate eventstore.
+The command side service stores restaurants in the Eventuate event store.
 
 The query side service handles GET requests.
-It subscribes to Restaurant events and maintains a denormalized representation of the restaurants using Redis for fast querying.
+It subscribes to Restaurant events and maintains a denormalized representation of the restaurants in Redis for fast querying.
 The query side service defines the following REST endpoints:
 
 * GET /restaurant/*id* - finds a restaurant
 * GET /availablerestaurants?zipcode=xx&dayOfWeek=xx&hour=xx&minute=xx - finds restaurants that are available to deliver to the specified zip code at the specified time
 
-# Signing up for Eventuate
+# About Eventuate&trade;
 
-To run the application you need credentials for the Eventuate platform.
-You can get them by [signing up here](https://signup.eventuate.io/).
+![](http://eventuate.io/i/logo.gif)
 
-# Building the application
+The application is built using [Eventuate](http://eventuate.io/), which is an application platform for writing transactional microservices.
+It provides a simple yet powerful event-driven programming model that is based on event sourcing and Command Query Responsibility Segregation (CQRS).
+Eventuate solves the distributed data management problems inherent in a microservice architecture.
+It consists of a scalable, distributed event store and client libraries for various languages and frameworks including Java, Scala, and the Spring framework.
 
-You can then build the application using this Gradle command:
+There are two versions of Eventuate:
+
+* [Eventuate SaaS server](http://eventuate.io/usingeventuate.html) - this is a full featured event store that is hosted on AWS
+* [Eventuate Local](http://eventuate.io/usingeventuate.html) - an open-source event store that is built using MySQL and Kafka
+
+# Building and running the application.
+
+This is a Java 8, Gradle project. However, you do not need to install Gradle since it will be downloaded automatically. You just need to have Java 8 installed.
+
+The details of how to build and run the services depend slightly on whether you are using Eventuate SaaS or Eventuate Local.
+
+## Building and running using Eventuate SaaS
+
+First, must [sign up to get your credentials](https://signup.eventuate.io/) in order to get free access to the SaaS version.
+
+Next, build the application:
 
 ```
 ./gradlew assemble
 ```
 
-Note: to use Gradle you just need to have the JDK in your path. You do not need to install it.
-
-# Running the service
-
-Now that you built the application you can run the application using these commands:
+Next, you can launch the application using [Docker Compose](https://docs.docker.com/compose/)
 
 ```
 docker-compose up -d
 ```
 
-# Using the application
+## Building and running using Eventuate Local
 
-Now that the application is running you can use `curl` or some other tool to invoke the REST endpoints.
+First, build the application:
+
+```
+./gradlew assemble -P eventuateDriver=local
+```
+
+Next, you can launch the application using [Docker Compose](https://docs.docker.com/compose/)
+
+```
+export DOCKER_HOST_IP=...
+docker-compose -f docker-compose-eventuate-local.yml up -d
+```
+
+Note: You need to set `DOCKER_HOST_IP` before running Docker Compose.
+`DOCKER_HOST_IP` is the IP address of the machine running the Docker daemon.
+It must be an IP address or resolvable hostname.
+It cannot be `localhost`.
+
+
+## Using the application
+
+Finally, you can use the Swagger UI provided by the services to create, update, delete and view restaurants:
+
+* `http://${DOCKER_HOST_IP?}:8081/swagger-ui.html` - Restaurant command-side service
+* `http://${DOCKER_HOST_IP?}:8082/swagger-ui.html` - Restaurant query-side service
+
+Note: DOCKER_HOST_IP is the IP address of the machine running the Docker daemon.
+
+(Hint: best to open these URLs in separate tabs)
 
 # Got questions?
 

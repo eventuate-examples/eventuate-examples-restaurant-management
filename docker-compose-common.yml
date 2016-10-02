@@ -5,13 +5,13 @@ redis:
     - "6379:6379"
 
 restaurantscommandside:
-  image: java:8
+  image: java:openjdk-8u91-jdk
   command: java -jar /app/restaurants-command-side-service.jar
   ports:
     - "8081:8080"
 
 restaurantsqueryside:
-  image: java:8
+  image: java:openjdk-8u91-jdk
   command: java -jar /app/restaurants-query-side-service.jar --spring.redis.host=redis
   ports:
     - "8082:8080"

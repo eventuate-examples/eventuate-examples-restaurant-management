@@ -1,6 +1,6 @@
 # /bin/bash
 
-if [ -z "$EVENTUATE_API_KEY_ID" -o -z "$EVENTUATE_API_KEY_SECRET" ] ; then
+if [ -z "$EVENTUATE_LOCAL" ] && [ -z "$EVENTUATE_API_KEY_ID" -o -z "$EVENTUATE_API_KEY_SECRET" ] ; then
   echo You must set EVENTUATE_API_KEY_ID and  EVENTUATE_API_KEY_SECRET
   exit -1
 fi
@@ -25,7 +25,7 @@ if [ -z "$SPRING_REDIS_HOST" ] ; then
  echo set SPRING_REDIS_HOST $SPRING_REDIS_HOST
 fi
 
-DOCKER_COMPOSE="docker-compose -p java-customers-and-orders"
+DOCKER_COMPOSE="docker-compose  "
 
 if [ "$1" = "-f" ] ; then
   shift;

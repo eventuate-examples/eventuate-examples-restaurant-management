@@ -26,7 +26,7 @@ public class RestaurantQueryController {
 
   @RequestMapping(value = "/availablerestaurants", method = RequestMethod.GET)
   @ResponseBody
-  public ResponseEntity<List<RestaurantInfo>> findAvailableRestaurants(FindAvailableRestaurantsRequest request) {
+  public ResponseEntity<List<RestaurantInfo>> findAvailableRestaurants(@ModelAttribute FindAvailableRestaurantsRequest request) {
     Address address = request.makeAddress();
     DeliveryTime deliveryTime = request.makeDeliveryTime();
     return ResponseEntity.ok(restaurantQuerySideRedisService.findAvailableRestaurants(address, deliveryTime));
