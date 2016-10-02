@@ -1,31 +1,26 @@
 redis:
-  image: redis:2.8
-  hostname: redis
-  ports:
-    - "6379:6379"
+  extends:
+    file: docker-compose-common.yml
+    service: redis
 
 restaurantscommandside:
-  image: java:8
-  working_dir: /app
+  extends:
+    file: docker-compose-common.yml
+    service: restaurantscommandside
   volumes:
     - ./restaurants-command-side-service/build/libs:/app
-  command: java -jar /app/restaurants-command-side-service.jar
-  ports:
-    - "8081:8080"
   environment:
-    EVENTUATE_API_KEY_ID:
-    EVENTUATE_API_KEY_SECRET:
+    EVENTUATE_API_KEY_ID: ${EVENTUATE_API_KEY_ID}
+    EVENTUATE_API_KEY_SECRET: ${EVENTUATE_API_KEY_SECRET}
 
 restaurantsqueryside:
-  image: java:8
-  working_dir: /app
+  extends:
+    file: docker-compose-common.yml
+    service: restaurantsqueryside
   volumes:
     - ./restaurants-query-side-service/build/libs:/app
-  command: java -jar /app/restaurants-query-side-service.jar --spring.redis.host=redis
-  ports:
-    - "8082:8080"
   links:
     - redis
   environment:
-    EVENTUATE_API_KEY_ID:
-    EVENTUATE_API_KEY_SECRET:
+    EVENTUATE_API_KEY_ID: ${EVENTUATE_API_KEY_ID}
+    EVENTUATE_API_KEY_SECRET: ${EVENTUATE_API_KEY_SECRET}

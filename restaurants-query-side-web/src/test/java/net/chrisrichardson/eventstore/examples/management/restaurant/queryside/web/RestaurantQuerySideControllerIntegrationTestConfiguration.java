@@ -2,7 +2,7 @@ package net.chrisrichardson.eventstore.examples.management.restaurant.queryside.
 
 import io.eventuate.AggregateRepository;
 import io.eventuate.EventuateAggregateStore;
-import io.eventuate.javaclient.spring.httpstomp.EventuateHttpStompClientConfiguration;
+import io.eventuate.javaclient.spring.jdbc.EventuateJdbcEventStoreConfiguration;
 import net.chrisrichardson.eventstore.examples.management.restaurant.commandside.RestaurantAggregate;
 import net.chrisrichardson.eventstore.examples.management.restaurant.commandside.RestaurantCommand;
 import net.chrisrichardson.eventstore.examples.management.restaurant.commandside.RestaurantService;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({RestaurantsQuerysideConfiguration.class, RestaurantsCommandsideConfiguration.class, EventuateHttpStompClientConfiguration.class})
+@Import({RestaurantsQuerysideConfiguration.class, RestaurantsCommandsideConfiguration.class, EventuateJdbcEventStoreConfiguration.class})
 @EnableAutoConfiguration
 public class RestaurantQuerySideControllerIntegrationTestConfiguration {
     @Bean

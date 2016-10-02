@@ -10,4 +10,5 @@ include 'restaurants-query-side-service'
 include 'monolithic-service'
 include 'e2e-test'
 include 'common-tests'
+include 'common-swagger'
 

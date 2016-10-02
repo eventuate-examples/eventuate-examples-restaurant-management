@@ -1,13 +1,15 @@
+apply plugin: VerifyEventStoreEnvironmentPlugin
+apply plugin: EventuateDependencyPlugin
+
 apply plugin: 'spring-boot'
 
 dependencies {
     compile project(":restaurants-command-side-web")
     compile project(":restaurants-query-side-web")
+    compile project(":common-swagger")
 
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-actuator"
-
-    compile "io.eventuate.client.java:eventuate-client-java-http-stomp-spring:$eventuateClientVersion"
 
     testCompile project(":common-tests")
     testCompile "org.springframework.boot:spring-boot-starter-test"
