@@ -8,24 +8,20 @@ fi
 set -e
 
 if [ -z "$SERVICE_HOST" ] ; then
-  if which docker-machine >/dev/null; then
-    export SERVICE_HOST=$(docker-machine ip default)
+  if [ -z "$DOCKER_HOST" ] ; then
+    export SERVICE_HOST=`hostname`
   else
-    export SERVICE_HOST=localhost
- fi
- echo set SERVICE_HOST $SERVICE_HOST
+    echo using ${DOCKER_HOST?}
+    XX=${DOCKER_HOST%\:*}
+    export SERVICE_HOST=${XX#tcp\:\/\/}
+  fi
+  echo set SERVICE_HOST $SERVICE_HOST
 fi
 
-if [ -z "$SPRING_REDIS_HOST" ] ; then
-  if which docker-machine >/dev/null; then
-    export SPRING_REDIS_HOST=$(docker-machine ip default)
-  else
-    export SPRING_REDIS_HOST=localhost
- fi
- echo set SPRING_REDIS_HOST $SPRING_REDIS_HOST
-fi
+export SPRING_REDIS_HOST=$SERVICE_HOST
+echo set SPRING_REDIS_HOST $SERVICE_HOST
 
-DOCKER_COMPOSE="docker-compose  "
+DOCKER_COMPOSE="docker-compose"
 
 if [ "$1" = "-f" ] ; then
   shift;
@@ -50,6 +46,8 @@ fi
 ${DOCKER_COMPOSE?} up -d redis $EXTRA_INFRASTRUCTURE_SERVICES
 
 ./gradlew $* clean build -x :e2e-test:test
+
+${DOCKER_COMPOSE?} build
 
 ${DOCKER_COMPOSE?} up -d
 
