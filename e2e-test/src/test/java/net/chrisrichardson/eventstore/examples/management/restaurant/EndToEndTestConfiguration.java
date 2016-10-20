@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-public class E2ETestConfiguration {
+public class EndToEndTestConfiguration {
 
     @Bean
     public RestTemplate restTemplate() {
