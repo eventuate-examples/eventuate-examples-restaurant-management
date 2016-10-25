@@ -25,7 +25,7 @@ import static net.chrisrichardson.eventstore.examples.management.restaurant.test
 import static net.chrisrichardson.eventstore.examples.management.restaurant.testutil.TestUtil.awaitSuccessfulRequest;
 import static org.junit.Assert.assertEquals;
 
-public abstract class BaseTest {
+public abstract class AbstractRestaurantManagementIntegrationTest {
 
     private String commandSideUrl(String path) {
         return "http://" + getHost() + ":" + getCommandSidePort() + "/" + path;

@@ -1,6 +1,6 @@
 package net.chrisrichardson.eventstore.examples.management.restaurant;
 
-import net.chrisrichardson.eventstore.examples.management.restaurant.integrationtests.BaseTest;
+import net.chrisrichardson.eventstore.examples.management.restaurant.integrationtests.AbstractRestaurantManagementIntegrationTest;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,9 +10,9 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {E2ETestConfiguration.class})
+@SpringApplicationConfiguration(classes = {EndToEndTestConfiguration.class})
 @WebAppConfiguration
-public class E2ETest extends BaseTest {
+public class EndToEndTest extends AbstractRestaurantManagementIntegrationTest {
 
     @Value("#{systemEnvironment['SERVICE_HOST']  ?: 'localhost'}")
     private String hostName;
