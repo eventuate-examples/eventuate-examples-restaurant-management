@@ -86,6 +86,7 @@ Note: You need to set `DOCKER_HOST_IP` before running Docker Compose.
 `DOCKER_HOST_IP` is the IP address of the machine running the Docker daemon.
 It must be an IP address or resolvable hostname.
 It cannot be `localhost`.
+See this [guide to setting `DOCKER_HOST_IP`](http://eventuate.io/docs/usingdocker.html) for more information.
 
 
 ## Using the application
