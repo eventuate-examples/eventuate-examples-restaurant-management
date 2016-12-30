@@ -50,12 +50,12 @@ redis:
     file: docker-compose-common.yml
     service: redis
 
-restaurantscommandside:
+restaurants:
   extends:
     file: docker-compose-common.yml
-    service: restaurantscommandside
+    service: restaurants
   volumes:
-    - ./restaurants-command-side-service/build/libs:/app
+    - ./restaurants-service/build/libs:/app
   links:
     - mysql
     - kafka
@@ -70,12 +70,12 @@ restaurantscommandside:
     EVENTUATELOCAL_CDC_DB_USER_NAME: root
     EVENTUATELOCAL_CDC_DB_PASSWORD: rootpassword
 
-restaurantsqueryside:
+restaurantsview:
   extends:
     file: docker-compose-common.yml
-    service: restaurantsqueryside
+    service: restaurantsview
   volumes:
-    - ./restaurants-query-side-service/build/libs:/app
+    - ./restaurants-view-service/build/libs:/app
   links:
     - redis
     - mysql
