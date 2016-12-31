@@ -1,0 +1,23 @@
+apply plugin: VerifyEventStoreEnvironmentPlugin
+apply plugin: EventuateDependencyPlugin
+
+apply plugin: 'spring-boot'
+
+dependencies {
+    compile project(":common-web")
+    compile project(":common-restaurants")
+    compile project(":common-swagger")
+
+    compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
+    compile "io.eventuate.client.java:eventuate-client-java-spring:$eventuateClientVersion"
+    compile "org.springframework.boot:spring-boot-starter-redis:$springBootVersion"
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.4.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
+
+    testCompile "junit:junit:4.11"
+    testCompile project(":testutil")
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+    testCompile "io.eventuate.client.java:eventuate-client-java-jdbc:$eventuateClientVersion"
+}

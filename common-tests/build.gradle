@@ -1,8 +1,6 @@
 dependencies {
     compile project(":testutil")
     compile project(":common-restaurants")
-    compile project(":restaurants-command-side-web")
-    compile project(":restaurants-query-side-web")
 
     compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
 

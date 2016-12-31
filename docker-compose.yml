@@ -3,22 +3,22 @@ redis:
     file: docker-compose-common.yml
     service: redis
 
-restaurantscommandside:
+restaurants:
   extends:
     file: docker-compose-common.yml
-    service: restaurantscommandside
+    service: restaurants
   volumes:
-    - ./restaurants-command-side-service/build/libs:/app
+    - ./restaurants-service/build/libs:/app
   environment:
     EVENTUATE_API_KEY_ID: ${EVENTUATE_API_KEY_ID}
     EVENTUATE_API_KEY_SECRET: ${EVENTUATE_API_KEY_SECRET}
 
-restaurantsqueryside:
+restaurantsview:
   extends:
     file: docker-compose-common.yml
-    service: restaurantsqueryside
+    service: restaurantsview
   volumes:
-    - ./restaurants-query-side-service/build/libs:/app
+    - ./restaurants-view-service/build/libs:/app
   links:
     - redis
   environment:

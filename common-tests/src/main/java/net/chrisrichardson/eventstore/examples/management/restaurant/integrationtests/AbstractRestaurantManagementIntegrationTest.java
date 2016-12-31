@@ -1,11 +1,6 @@
 package net.chrisrichardson.eventstore.examples.management.restaurant.integrationtests;
 
-import net.chrisrichardson.eventstore.examples.management.restaurant.commandside.web.CreateRestaurantResponse;
-import net.chrisrichardson.eventstore.examples.management.restaurant.commandside.web.UpdateRestaurantResponse;
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.Address;
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.DeliveryTime;
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.RestaurantInfo;
-import net.chrisrichardson.eventstore.examples.management.restaurant.queryside.web.FindAvailableRestaurantsRequest;
+import net.chrisrichardson.eventstore.examples.management.restaurant.common.*;
 import net.chrisrichardson.eventstore.examples.management.restaurant.testutil.RestaurantMother;
 import net.chrisrichardson.eventstore.examples.management.restaurant.testutil.RestaurantTestData;
 import org.junit.Assert;
