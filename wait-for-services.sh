@@ -14,6 +14,7 @@ while [[ "$done" = false ]]; do
 			done=true
 		else
 			done=false
+			break
 		fi
 	done
 	if [[ "$done" = true ]]; then
