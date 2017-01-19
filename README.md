@@ -8,6 +8,15 @@ It is written in Java and uses the Eventuate Platform, Spring Boot, and Redis.
 
 Don't forget to take a look at the other [Eventuate example applications](http://eventuate.io/exampleapps.html).
 
+# Got questions?
+
+Don't hesitate to create an issue or see
+
+* [Website](http://eventuate.io)
+* [Mailing list](https://groups.google.com/d/forum/eventuate-users)
+* [Slack](https://eventuate-users.slack.com). [Get invite](https://eventuateusersslack.herokuapp.com/)
+* [Contact us](http://eventuate.io/contact.html).
+
 # Architecture
 
 The following diagram shows the architecture of the application.
@@ -102,4 +111,9 @@ Note: DOCKER_HOST_IP is the IP address of the machine running the Docker daemon.
 
 # Got questions?
 
-Don't hesitate to create an issue or [contact us](http://eventuate.io/contact.html).
+Don't hesitate to create an issue or see
+
+* [Website](http://eventuate.io)
+* [Mailing list](https://groups.google.com/d/forum/eventuate-users)
+* [Slack](https://eventuate-users.slack.com). [Get invite](https://eventuateusersslack.herokuapp.com/)
+* [Contact us](http://eventuate.io/contact.html).
