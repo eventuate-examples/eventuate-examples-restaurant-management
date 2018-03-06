@@ -5,5 +5,5 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
 
     compile "io.eventuate.client.java:eventuate-client-java-spring:$eventuateClientVersion"
-    compile "junit:junit:4.11"
+    compile "junit:junit:4.12"
 }
