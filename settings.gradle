@@ -4,7 +4,6 @@ include 'restaurants-service'
 include 'restaurants-view-service'
 include 'testutil'
 include 'common-tests'
-include 'restaurants-integration-test'
 include 'e2e-test'
 include 'common-swagger'
 
