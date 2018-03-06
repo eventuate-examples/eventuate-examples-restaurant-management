@@ -1,7 +1,7 @@
 apply plugin: VerifyEventStoreEnvironmentPlugin
 apply plugin: EventuateDependencyPlugin
 
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile project(":common-web")
@@ -11,7 +11,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
     compile "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
     compile "io.eventuate.client.java:eventuate-client-java-spring:$eventuateClientVersion"
-    compile "org.springframework.boot:spring-boot-starter-redis:$springBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-data-redis:$springBootVersion"
 
     testCompile "junit:junit:4.12"
     testCompile project(":testutil")
