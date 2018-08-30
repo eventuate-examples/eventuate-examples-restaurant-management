@@ -32,8 +32,7 @@ fi
 if [ "$1" = "--use-existing" ] ; then
   shift;
 else
-  ${DOCKER_COMPOSE?} stop
-  ${DOCKER_COMPOSE?} rm -v --force
+  ${DOCKER_COMPOSE?} down --remove-orphans -v
 fi
 
 NO_RM=false
@@ -58,6 +57,5 @@ set -e
 ./gradlew -a $* :e2e-test:cleanTest :e2e-test:test -P ignoreE2EFailures=false
 
 if [ $NO_RM = false ] ; then
-  ${DOCKER_COMPOSE?} stop
-  ${DOCKER_COMPOSE?} rm -v --force
+  ${DOCKER_COMPOSE?} down --remove-orphans -v
 fi
