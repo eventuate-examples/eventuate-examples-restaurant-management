@@ -1,6 +1,7 @@
 package net.chrisrichardson.eventstore.examples.management.restaurantsservice;
 
 import io.eventuate.javaclient.spring.jdbc.EmbeddedTestAggregateStoreConfiguration;
+import net.chrisrichardson.eventstore.examples.management.restaurant.common.MeterRegistryConfiguration;
 import net.chrisrichardson.eventstore.examples.management.restaurantsservice.web.RestaurantsWebConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -15,10 +16,10 @@ import java.util.List;
 
 @Configuration
 @Import({RestaurantsWebConfiguration.class,
-        EmbeddedTestAggregateStoreConfiguration.class})
+        EmbeddedTestAggregateStoreConfiguration.class,
+        MeterRegistryConfiguration.class})
 @EnableAutoConfiguration
 public class RestaurantServiceIntegrationTestConfiguration {
-
   @Bean
   public RestTemplate restTemplate() {
     RestTemplate restTemplate = new RestTemplate();

@@ -1,6 +1,7 @@
 package net.chrisrichardson.eventstore.examples.management.restaurantsviewservice;
 
 import io.eventuate.javaclient.driver.EventuateDriverConfiguration;
+import net.chrisrichardson.eventstore.examples.management.restaurant.common.MeterRegistryConfiguration;
 import net.chrisrichardson.eventstore.examples.management.restaurant.commonswagger.CommonSwaggerConfiguration;
 import net.chrisrichardson.eventstore.examples.management.restaurantsviewservice.web.RestaurantsViewWebConfiguration;
 import org.springframework.boot.SpringApplication;
@@ -12,11 +13,11 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import({RestaurantsViewWebConfiguration.class,
         EventuateDriverConfiguration.class,
-        CommonSwaggerConfiguration.class})
+        CommonSwaggerConfiguration.class,
+        MeterRegistryConfiguration.class})
 @EnableAutoConfiguration
 @ComponentScan
 public class RestaurantsViewServiceMain {
-
   public static void main(String[] args) {
     SpringApplication.run(RestaurantsViewServiceMain.class, args);
   }
