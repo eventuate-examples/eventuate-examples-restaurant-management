@@ -1,6 +1,6 @@
 #! /bin/bash -e
 
-export EXTRA_INFRASTRUCTURE_SERVICES=cdcservice
+export EXTRA_INFRASTRUCTURE_SERVICES=mysqlbinloginfrastructure
 export EVENTUATE_LOCAL=yes
 . ./set-env.sh
-./_build-and-test-all.sh -f docker-compose-eventuate-local.yml $* -P eventuateDriver=local
+./_build-and-test-all.sh $* -P eventuateDriver=local
