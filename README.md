@@ -88,7 +88,8 @@ Next, you can launch the application using [Docker Compose](https://docs.docker.
 
 ```
 export DOCKER_HOST_IP=...
-docker-compose -f docker-compose-eventuate-local.yml up -d
+./gradlew mysqlbinlogComposeBuild
+./gradlew mysqlbinlogComposeUp
 ```
 
 Note: You need to set `DOCKER_HOST_IP` before running Docker Compose.
