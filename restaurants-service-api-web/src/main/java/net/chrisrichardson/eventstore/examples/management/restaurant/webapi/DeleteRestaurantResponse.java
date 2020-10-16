@@ -1,4 +1,4 @@
-package net.chrisrichardson.eventstore.examples.management.restaurant.common;
+package net.chrisrichardson.eventstore.examples.management.restaurant.webapi;
 
 public class DeleteRestaurantResponse {
 

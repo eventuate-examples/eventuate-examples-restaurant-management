@@ -3,6 +3,9 @@ package net.chrisrichardson.eventstore.examples.management.restaurant.integratio
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.*;
 import net.chrisrichardson.eventstore.examples.management.restaurant.testutil.RestaurantMother;
 import net.chrisrichardson.eventstore.examples.management.restaurant.testutil.RestaurantTestData;
+import net.chrisrichardson.eventstore.examples.management.restaurant.view.webapi.FindAvailableRestaurantsRequest;
+import net.chrisrichardson.eventstore.examples.management.restaurant.webapi.CreateRestaurantResponse;
+import net.chrisrichardson.eventstore.examples.management.restaurant.webapi.UpdateRestaurantResponse;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

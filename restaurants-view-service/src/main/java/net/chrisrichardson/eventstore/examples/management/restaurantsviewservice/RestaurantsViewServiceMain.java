@@ -1,6 +1,6 @@
 package net.chrisrichardson.eventstore.examples.management.restaurantsviewservice;
 
-import io.eventuate.javaclient.driver.EventuateDriverConfiguration;
+import io.eventuate.local.java.spring.javaclient.driver.EventuateDriverConfiguration;
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.MeterRegistryConfiguration;
 import net.chrisrichardson.eventstore.examples.management.restaurant.commonswagger.CommonSwaggerConfiguration;
 import net.chrisrichardson.eventstore.examples.management.restaurantsviewservice.web.RestaurantsViewWebConfiguration;

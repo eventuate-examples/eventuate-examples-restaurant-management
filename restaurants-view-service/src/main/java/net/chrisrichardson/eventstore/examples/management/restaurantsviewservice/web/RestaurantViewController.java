@@ -2,8 +2,8 @@ package net.chrisrichardson.eventstore.examples.management.restaurantsviewservic
 
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.Address;
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.DeliveryTime;
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.FindAvailableRestaurantsRequest;
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.RestaurantInfo;
+import net.chrisrichardson.eventstore.examples.management.restaurant.view.webapi.FindAvailableRestaurantsRequest;
 import net.chrisrichardson.eventstore.examples.management.restaurantsviewservice.backend.redis.RestaurantQuerySideRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -2,7 +2,7 @@ package net.chrisrichardson.eventstore.examples.management.restaurant.testutil;
 
 import io.eventuate.Aggregate;
 import io.eventuate.ReflectiveMutableCommandProcessingAggregate;
-import io.eventuate.javaclient.spring.EventEntityUtil;
+import io.eventuate.javaclient.eventdispatcher.EventEntityUtil;
 import org.junit.Test;
 import org.springframework.util.ReflectionUtils;
 

@@ -1,9 +1,9 @@
 package net.chrisrichardson.eventstore.examples.management.restaurantsservice.web;
 
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.CreateRestaurantResponse;
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.DeleteRestaurantResponse;
 import net.chrisrichardson.eventstore.examples.management.restaurant.common.RestaurantInfo;
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.UpdateRestaurantResponse;
+import net.chrisrichardson.eventstore.examples.management.restaurant.webapi.CreateRestaurantResponse;
+import net.chrisrichardson.eventstore.examples.management.restaurant.webapi.DeleteRestaurantResponse;
+import net.chrisrichardson.eventstore.examples.management.restaurant.webapi.UpdateRestaurantResponse;
 import net.chrisrichardson.eventstore.examples.management.restaurantsservice.backend.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

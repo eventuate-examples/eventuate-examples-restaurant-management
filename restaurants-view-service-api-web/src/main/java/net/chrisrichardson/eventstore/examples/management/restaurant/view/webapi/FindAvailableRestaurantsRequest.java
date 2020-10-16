@@ -1,6 +1,8 @@
-package net.chrisrichardson.eventstore.examples.management.restaurant.common;
+package net.chrisrichardson.eventstore.examples.management.restaurant.view.webapi;
 
 
+import net.chrisrichardson.eventstore.examples.management.restaurant.common.Address;
+import net.chrisrichardson.eventstore.examples.management.restaurant.common.DeliveryTime;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class FindAvailableRestaurantsRequest {

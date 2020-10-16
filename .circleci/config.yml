@@ -1,0 +1,49 @@
+version: 2.1
+orbs:
+  build-and-test:
+    jobs:
+      build-and-test:
+        parameters:
+          script:
+            description: the script to execute
+            type: string
+        machine: true
+        working_directory: ~/eventuate-examples-restaurant-management
+        steps:
+          - checkout
+          - restore_cache:
+              keys:
+                - eventuate-examples-restaurant-management-{{ checksum "gradle.properties" }}
+                - eventuate-examples-restaurant-management-
+          - run:
+              command: |
+                ./.circleci/upgrade-docker-compose.sh
+                . ./.circleci/setenv-circle-ci.sh
+                ./gradlew testClasses
+          - save_cache:
+              paths:
+                - ~/.gradle
+              key: eventuate-examples-restaurant-management-{{ checksum "gradle.properties" }}
+          - run:
+              command: |
+                . ./.circleci/setenv-circle-ci.sh
+                <<parameters.script>>
+          - run:
+              name: Save test results
+              command: |
+                mkdir -p ~/junit
+                find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
+              when: always
+          - store_test_results:
+              path: ~/junit
+          - store_artifacts:
+              path: ~/junit
+          - store_artifacts:
+              path: ~/container-logs
+workflows:
+  version: 2.1
+  build-test-and-deploy:
+    jobs:
+      - build-and-test/build-and-test:
+          name: build-and-test-all
+          script: ./build-and-test-all.sh

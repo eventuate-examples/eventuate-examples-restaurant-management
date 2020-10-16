@@ -1,8 +1,8 @@
 package net.chrisrichardson.eventstore.examples.management.restaurantsservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import net.chrisrichardson.eventstore.examples.management.restaurant.common.CreateRestaurantResponse;
 import net.chrisrichardson.eventstore.examples.management.restaurant.testutil.RestaurantMother;
+import net.chrisrichardson.eventstore.examples.management.restaurant.webapi.CreateRestaurantResponse;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
