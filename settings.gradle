@@ -1,10 +1,12 @@
 include 'common-restaurants'
 include 'common-web'
 include 'restaurants-service'
+include 'restaurants-service-api-messaging'
+include 'restaurants-service-api-web'
 include 'restaurants-view-service'
+include 'restaurants-view-service-api-web'
 include 'testutil'
 include 'common-tests'
-include 'restaurants-integration-test'
 include 'e2e-test'
 include 'common-swagger'
 

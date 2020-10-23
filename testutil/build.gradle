@@ -5,6 +5,6 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
 
     compile "io.reactivex:rxjava:1.1.5"
-    compile "io.eventuate.client.java:eventuate-client-java-spring:$eventuateClientVersion"
-    compile "junit:junit:4.11"
+    compile "io.eventuate.local.java:eventuate-client-java-spring:$eventuateLocalVersion"
+    compile "junit:junit:4.12"
 }
